@@ -2,7 +2,15 @@
 
 <hr>
 
-<div class="card-columns"> 
+<div class="row animated fadeIn fast" *ngIf="heroes.length === 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término {{ keyword }}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns" *ngIf="heroes.length !== 0"> 
 
     <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i= index">
       <img [src]="heroe.img" class="card-img-top" [alt]="heroe.img">
