@@ -20,9 +20,9 @@ export class HeroeTarjetaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  verHeroe(i:number){
-    // this.router.navigate(['/heroe',i]);
-    this.heroeSeleccionado.emit( this.index );
+  verHeroe(idx: number){
+    this.router.navigate(['/heroe', idx]);
+    // this.heroeSeleccionado.emit( idx );
   }
 
 }

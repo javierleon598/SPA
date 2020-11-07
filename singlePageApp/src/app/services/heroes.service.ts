@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Heroe {
+  idx?: number,
   nombre: string,
   bio: string,
   img: string,
@@ -82,10 +83,12 @@ export class HeroesService {
     let heroeArray: Heroe[] = [];
     keyword = keyword.toLowerCase();
 
-    for( let heroe of this.heroes ){
+    for( let i = 0; i < this.heroes.length; i++  ){
+      let heroe = this.heroes[i];
       let nombre = heroe.nombre.toLowerCase();
       if ( nombre.indexOf( keyword ) >= 0 ) {        
-        heroeArray.push( heroe )
+        heroe.idx = i;
+        heroeArray.push( heroe );
       }
     }
         
